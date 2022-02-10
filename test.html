@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fa">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-language" content="fa-IR">
+	<title>تقویم فارسی جاوااسکریپت - محمدابراهیمی</title>
+	<link rel="stylesheet" href="main.css">
+	
+	<link rel="stylesheet" href="js-persian-cal.css">
+	<script type="text/javascript" src="js-persian-cal.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<p class="box center">
+		انتخاب گر تاریخ شمسی<br>
+		توسط: <a href="">محمد ابراهیمی</a>
+	</p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<label for="pcal1" style="text-align: center">تاریخ ۱ - حالت ساده</label><br>
+				<input type="text" id="pcal1" class="form-control pdate"><br>
+			</div>
+			<hr>
+			<div class="col-lg-12">
+				<label for="pcal2">تاریخ ۲ - تعریف تاریخ ابتدایی</label><br>
+				<input type="text" id="pcal2" class="form-control pdate"><br>
+
+			</div>
+			<div class="col-lg-12">
+				<label for="pcal3">تاریخ ۳ - تعریف تاریخ پیش‌فرض در صورت صحیح نبودن مقدار فیلد</label><br>
+				<input type="text" id="pcal3" class="form-control pdate"><br>
+			</div>
+			<hr>
+			<div class="col-lg-12">
+				<label for="pcal4">تاریخ ۴ - آگاه شدن هنگام تغییر</label><br>
+				<input type="text" id="pcal4" class="form-control pdate"><br>
+			</div>
+			<hr>
+			<div class="col-lg-12">
+				<label for="pcal5">تاریخ ۵ - همراه پر کردن فیلد اضافی</label><br>
+				<input type="text" id="pcal5" class="form-control pdate"><br>
+			</div>
+
+
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var objCal1 = new AMIB.persianCalendar( 'pcal1' );
+
+		var objCal2 = new AMIB.persianCalendar( 'pcal2', {
+				initialDate: '1301/1/1',
+			}
+		);
+		
+		var objCal3 = new AMIB.persianCalendar( 'pcal3', {
+				defaultDate: '1401/12/12'
+			}
+		);
+		
+		var objCal4 = new AMIB.persianCalendar( 'pcal4', {
+				onchange: function( pdate ){
+					if( pdate ) {
+						alert( pdate.join( '/' ) );
+					} else {
+						alert( 'تاریخ واردشده نادرست است' );
+					}
+				}
+			}
+		);
+
+		var objCal5 = new AMIB.persianCalendar( 'pcal5', {
+				extraInputID: 'extra',
+				extraInputFormat: 'YYYY/MM/DD - yyyy/mm/dd - JD'
+			}
+		);
+	</script>
+</body>
+
+</html>
